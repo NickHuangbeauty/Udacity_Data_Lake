@@ -7,11 +7,11 @@ from pyspark.sql.types import *
 from pyspark.sql.functions import year, month, dayofmonth, hour, weekofyear, date_format
 
 # Access AWS Cloud configure
-# config = configparser.ConfigParser()
-# config.read('dl.cfg')
+config = configparser.ConfigParser()
+config.read('dl.cfg')
 
-# os.environ["AWS_ACCESS_KEY_ID"] = config["ACCESS"]["AWS_ACCESS_KEY_ID"]
-# os.environ["AWS_SECRET_ACCESS_KEY"] = config["ACCESS"]["AWS_SECRET_ACCESS_KEY"]
+os.environ["AWS_ACCESS_KEY_ID"] = config["ACCESS"]["AWS_ACCESS_KEY_ID"]
+os.environ["AWS_SECRET_ACCESS_KEY"] = config["ACCESS"]["AWS_SECRET_ACCESS_KEY"]
 
 
 def create_spark_session():
@@ -64,10 +64,6 @@ def process_song_data(spark, input_data, output_data):
     # write artists table to parquet files
     artists_table.write.parquet(os.path.join(output_data, "artists_table/"), "overwrite")
 
-    # create songs temp table for using join the songplays table
-
-
-#     df.createOrReplaceTempView("song_temp_table")
 
 def process_log_data(spark, input_data, output_data):
     """
