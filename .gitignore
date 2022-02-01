@@ -4,4 +4,12 @@ bin
 data-lake-project-resources.zip
 lib
 .idea
+Operation_etl_data.ipynb
+for_testing.py
+pyvenv.cfg
+share
+lib
+etc
+data
+
 
